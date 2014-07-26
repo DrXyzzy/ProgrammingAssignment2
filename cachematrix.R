@@ -1,13 +1,21 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
+## Example using both functions defined below:
+##   m   <-  ... some matrix ...
+##   mcm <- makeCacheMatrix(m)    # initialize the object
+##   ... mcm$get() ...            # do something with the matrix
+##   m_inverse <- cacheSolve(mcm) # compute and save the inverse
+##   .... mcm$getinverse() ...    # use the stored inverse later
+##
+## Note: mcm$getinverse() returns NULL if called before doing cacheSolve(mcm)
+
+
 ## Given an invertible matrix, return a list containing functions to:
 ##   set the value of the matrix
 ##   get the value of the matrix
 ##   set the value of the inverse of the matrix
-##   get the valud of the inverse of the matrix
-
-## Note: getinverse() will return NULL if cacheSolve() has not been called
+##   get the value of the inverse of the matrix
 
 makeCacheMatrix <- function(x = matrix()) {
         inverse <- NULL
@@ -41,4 +49,3 @@ cacheSolve <- function(x, ...) {
         x$setinverse(inverse)
         inverse
 }
-
